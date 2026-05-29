@@ -1,0 +1,71 @@
+{% extends "base.html" %}
+
+{% block content %}
+<section class="chatbot-contenedor">
+  <div class="chatbot-header">
+    <h2>Chatbot de apoyo SERENA</h2>
+    <p>
+      Este espacio te permite expresar cómo te sientes y recibir una orientación inicial.
+      Las respuestas son predeterminadas y no reemplazan el acompañamiento profesional.
+    </p>
+  </div>
+
+  <div class="chatbot-caja">
+    <div class="chatbot-mensajes">
+
+      {% for mensaje in mensajes %}
+        <div class="mensaje usuario">
+          <div class="burbuja">
+            <strong>Tú</strong>
+            <p>{{ mensaje.mensaje_usuario }}</p>
+          </div>
+        </div>
+
+        <div class="mensaje bot">
+          <div class="burbuja">
+            <strong>SERENA</strong>
+            <p>{{ mensaje.respuesta_bot }}</p>
+          </div>
+        </div>
+      {% else %}
+        <div class="mensaje bot">
+          <div class="burbuja">
+            <strong>SERENA</strong>
+            <p>
+              Hola, este es un espacio seguro para escribir cómo te sientes.
+              Selecciona tu estado de ánimo y cuéntame un poco qué está pasando.
+            </p>
+          </div>
+        </div>
+      {% endfor %}
+
+    </div>
+
+    <form method="post" action="/chatbot" class="form-chatbot">
+      <label for="estado_animo">¿Cómo te sientes hoy?</label>
+      <select id="estado_animo" name="estado_animo" required>
+        <option value="">Selecciona una opción</option>
+        <option value="triste">Triste</option>
+        <option value="ansioso">Ansioso/a</option>
+        <option value="estresado">Estresado/a</option>
+        <option value="enojado">Enojado/a</option>
+        <option value="cansado">Cansado/a</option>
+        <option value="confundido">Confundido/a</option>
+        <option value="solo">Solo/a</option>
+        <option value="crisis">Siento que estoy en crisis</option>
+      </select>
+
+      <label for="mensaje">Cuéntanos qué sientes</label>
+      <textarea
+        id="mensaje"
+        name="mensaje"
+        rows="4"
+        placeholder="Escribe aquí lo que estás sintiendo..."
+        required
+      ></textarea>
+
+      <button type="submit">Enviar mensaje</button>
+    </form>
+  </div>
+</section>
+{% endblock %}

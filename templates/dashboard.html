@@ -1,0 +1,23 @@
+{% extends "base.html" %}
+
+{% block content %}
+<section class="card">
+  <h2>Hola, {{ usuario.nombres }}</h2>
+  <p>Desde este panel puedes acceder a los tres apartados principales de SERENA.</p>
+
+  <div class="grid">
+    <a class="modulo" href="/chatbot">
+      <h3>Chatbot</h3>
+      <p>Escribe cómo te sientes y recibe una orientación predeterminada.</p>
+    </a>
+    <a class="modulo" href="/diario">
+      <h3>Diario</h3>
+      <p>Guarda tus pensamientos y revisa lo que escribiste antes.</p>
+    </a>
+    <a class="modulo" href="/bienestar">
+      <h3>Bienestar</h3>
+      <p>Consulta datos de contacto y registra una solicitud de apoyo.</p>
+    </a>
+  </div>
+</section>
+{% endblock %}

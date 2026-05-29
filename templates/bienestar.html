@@ -1,0 +1,30 @@
+{% extends "base.html" %}
+
+{% block content %}
+<section class="card">
+  <h2>Contacto con Bienestar</h2>
+  <p>Correo de Bienestar SERENA: <strong>bienestarucca@gmail.com</strong></p>
+  <p>Línea de atención institucional: <strong>6014433700</strong></p>
+  <p class="nota">Si estás en una emergencia, comunícate con una línea de emergencia o busca ayuda presencial inmediata.</p>
+
+  {% if mensaje_ok %}
+    <div class="exito">{{ mensaje_ok }}</div>
+  {% endif %}
+
+  <form method="post" action="/bienestar">
+    <label for="nivel_urgencia">Nivel de urgencia</label>
+    <select id="nivel_urgencia" name="nivel_urgencia" required>
+      <option value="">Seleccione una opción</option>
+      <option value="Bajo">Bajo</option>
+      <option value="Medio">Medio</option>
+      <option value="Alto">Alto</option>
+      <option value="Crisis">Crisis</option>
+    </select>
+
+    <label for="mensaje">Mensaje para Bienestar</label>
+    <textarea id="mensaje" name="mensaje" rows="6" required></textarea>
+
+    <button type="submit">Enviar solicitud</button>
+  </form>
+</section>
+{% endblock %}

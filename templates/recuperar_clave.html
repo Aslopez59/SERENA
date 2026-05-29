@@ -1,0 +1,28 @@
+{% extends "base.html" %}
+
+{% block content %}
+<section class="card pequeno">
+  <h2>Recuperar contraseña</h2>
+  <p>El correo SERENA enviará un código al correo institucional registrado.</p>
+
+  {% if errores %}
+    <div class="errores">
+      <ul>
+        {% for error in errores %}
+          <li>{{ error }}</li>
+        {% endfor %}
+      </ul>
+    </div>
+  {% endif %}
+
+  {% if mensaje %}
+    <div class="exito">{{ mensaje }}</div>
+  {% endif %}
+
+  <form method="post" action="/recuperar-clave">
+    <label for="correo">Correo institucional</label>
+    <input type="email" id="correo" name="correo" required>
+    <button type="submit">Enviar código</button>
+  </form>
+</section>
+{% endblock %}

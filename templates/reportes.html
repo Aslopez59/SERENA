@@ -1,0 +1,68 @@
+{% extends "base.html" %}
+
+{% block content %}
+<section>
+  <h2>Reportes del sistema SERENA</h2>
+  <p>
+    En este apartado se muestran estadísticas generales del uso de la aplicación.
+    Esto permite revisar cuántos usuarios, diarios, mensajes y solicitudes se han registrado.
+  </p>
+</section>
+
+<section class="tarjetas-reportes">
+  <div class="tarjeta-reporte">
+    <h3>Usuarios registrados</h3>
+    <p>{{ total_usuarios }}</p>
+  </div>
+
+  <div class="tarjeta-reporte">
+    <h3>Entradas del diario</h3>
+    <p>{{ total_diarios }}</p>
+  </div>
+
+  <div class="tarjeta-reporte">
+    <h3>Mensajes del chatbot</h3>
+    <p>{{ total_chats }}</p>
+  </div>
+
+  <div class="tarjeta-reporte">
+    <h3>Solicitudes a Bienestar</h3>
+    <p>{{ total_bienestar }}</p>
+  </div>
+</section>
+
+<section>
+  <h2>Solicitudes por nivel de urgencia</h2>
+
+  <div class="grafica-barras">
+
+    <div class="barra-contenedor">
+      <span>Baja</span>
+      <div class="barra">
+        <div class="barra-interna" style="width: {{ porcentaje_baja }}%;">
+          {{ urgencia_baja }}
+        </div>
+      </div>
+    </div>
+
+    <div class="barra-contenedor">
+      <span>Media</span>
+      <div class="barra">
+        <div class="barra-interna" style="width: {{ porcentaje_media }}%;">
+          {{ urgencia_media }}
+        </div>
+      </div>
+    </div>
+
+    <div class="barra-contenedor">
+      <span>Alta</span>
+      <div class="barra">
+        <div class="barra-interna alerta" style="width: {{ porcentaje_alta }}%;">
+          {{ urgencia_alta }}
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+{% endblock %}

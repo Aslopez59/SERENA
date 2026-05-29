@@ -1,0 +1,50 @@
+{% extends "base.html" %}
+
+{% block content %}
+<section class="card">
+  <h2>Diario emocional</h2>
+
+  <form method="post" action="/diario">
+    <label for="estado_animo">Estado de ánimo</label>
+    <select id="estado_animo" name="estado_animo" required>
+      <option value="">Seleccione una opción</option>
+      <option value="Tranquilo">Tranquilo</option>
+      <option value="Ansioso">Ansioso</option>
+      <option value="Triste">Triste</option>
+      <option value="Preocupado">Preocupado</option>
+      <option value="Motivado">Motivado</option>
+    </select>
+
+    <label for="contenido">Escribe lo que sientes</label>
+    <textarea id="contenido" name="contenido" rows="6" required></textarea>
+
+    <button type="submit">Guardar entrada</button>
+  </form>
+</section>
+
+<section class="card">
+  <h2>Entradas anteriores</h2>
+  <table>
+    <thead>
+      <tr>
+        <th>Fecha</th>
+        <th>Estado</th>
+        <th>Contenido</th>
+      </tr>
+    </thead>
+    <tbody>
+      {% for entrada in entradas %}
+      <tr>
+        <td>{{ entrada.fecha.strftime('%Y-%m-%d %H:%M') }}</td>
+        <td>{{ entrada.estado_animo }}</td>
+        <td>{{ entrada.contenido }}</td>
+      </tr>
+      {% else %}
+      <tr>
+        <td colspan="3">No hay entradas guardadas.</td>
+      </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+</section>
+{% endblock %}
