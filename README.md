@@ -1,4 +1,4 @@
-# SERENA UCatólica - Proyecto FastAPI + SQLite
+# SERENA UCatólica 
 
 SERENA es una aplicación académica para estudiantes de la Universidad Católica de Colombia. Su objetivo es acercar a estudiantes que están pasando por un momento psicológico difícil a tres herramientas básicas: chatbot, diario emocional y contacto con Bienestar.
 
@@ -49,7 +49,7 @@ Luego abrir:
 http://127.0.0.1:8000
 ```
 
-## Qué contiene según la rúbrica
+## Qué contiene
 
 - Coherencia con el proyecto inicial: mantiene la idea de apoyo emocional SERENA.
 - Dominio del tema: usa FastAPI, rutas, modelos, validaciones, entorno virtual y SQLite.
